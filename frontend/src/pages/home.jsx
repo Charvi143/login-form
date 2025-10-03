@@ -6,7 +6,7 @@ const HomePage = () => {
 
     const navigate = useNavigate();
     const [data, setdata] = useState(null)
-    const btnRef=useRef(null);
+    const btnRef = useRef(null);
     const handleLogout = async (e) => {
         btnRef.current.style.backgroundColor = "green";
         localStorage.removeItem('token');
