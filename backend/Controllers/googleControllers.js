@@ -35,7 +35,7 @@ const googleAuth = async (req, res, next) => {
             .json({success:true, message: 'SignUp successfull', jwtToken, user});
 
     }catch(err){
-        console.log("Error Google: ", err);
+        console.error("Error Google: ", err);
         res.status(500).json({
             message: "Internal Server Error"
         });

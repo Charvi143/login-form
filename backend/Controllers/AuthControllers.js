@@ -26,7 +26,7 @@ const Signup = async (req, res) => {
         return res.status(201)
             .json({success:true, message: 'SignUp successfull', jwtToken})
     } catch (err) {
-        console.log(err);
+        console.error(err);
         return res.status(500)
             .json({success:false, message:'Internal Server Error'})
     }
@@ -59,6 +59,7 @@ const Login = async (req, res) => {
             .json ({success:true, message:'Login Success', jwtToken, email, name:user.name});
 
         } catch (err) {
+            console.error(err)
             return res.status(500)
                 .json({success:false, message:'Internal Server Error'})
         }
