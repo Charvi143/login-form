@@ -35,6 +35,7 @@ const Signup = () => {
         }
         localStorage.setItem('name', data.name)
         localStorage.setItem('token', res.jwtToken)
+        localStorage.setItem('image', res.image)
         navigate('/home')
     }
 

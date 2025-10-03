@@ -24,7 +24,7 @@ const Signup = async (req, res) => {
             {expiresIn: '24h'}
         )
         return res.status(201)
-            .json({success:true, message: 'SignUp successfull', jwtToken})
+            .json({success:true, message: 'SignUp successfull', jwtToken, image:User.image})
     } catch (err) {
         console.error(err);
         return res.status(500)
@@ -56,7 +56,7 @@ const Login = async (req, res) => {
             {expiresIn: '24h'}
         )
         return res.status(200)
-            .json ({success:true, message:'Login Success', jwtToken, email, name:user.name});
+            .json ({success:true, message:'Login Success', jwtToken, email, name:user.name, image:user.image});
 
         } catch (err) {
             console.error(err)

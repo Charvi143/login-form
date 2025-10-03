@@ -11,6 +11,7 @@ const HomePage = () => {
         btnRef.current.style.backgroundColor = "green";
         localStorage.removeItem('token');
         localStorage.removeItem('name');
+        localStorage.removeItem('image');
         navigate('/login');
     }
 

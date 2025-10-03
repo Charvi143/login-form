@@ -29,6 +29,7 @@ const Login = () => {
         console.log(res)
         localStorage.setItem('name', res.name)
         localStorage.setItem('token', res.jwtToken)
+        localStorage.setItem('image', res.image)
         navigate('/home')
     }
 

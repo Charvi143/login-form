@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema({
     unique: true,
   },
   type: { type: String, default: "local" },
-  image: {type: String, default: false}
+  image: {type: mongoose.Schema.Types.Mixed, default: false}
 }, {strict: false});
 
 export const UserModel = mongoose.model('User', UserSchema);
