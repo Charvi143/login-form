@@ -6,6 +6,16 @@ function RefrshHandler() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        if (location.pathname === '/login'){
+            document.title = "Login Form | CV";
+        }
+        else if (location.pathname === '/signup'){
+            document.title = "Signup Form | CV";
+        }
+        else if (location.pathname === '/home'){
+            document.title = "Home Page | CV";
+        }
+
         if (localStorage.getItem('token')) {
             if (location.pathname === '/' ||
                 location.pathname === '/login' ||
