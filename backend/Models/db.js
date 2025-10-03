@@ -1,15 +1,20 @@
 import mongoose from "mongoose";
 
-const mongo_url = process.env.MONGO_URL;
+let isConnected = false; // track connection
 
-(async () => {
-    try {
-        await mongoose.connect(mongo_url);
-        console.log('MongoDB Connected...');
+export const connectDB = async () => {
+  if (isConnected) return;
+  try {
+    await mongoose.connect(process.env.MONGO_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    isConnected = true;
+    console.log("✅ MongoDB Connected...");
+  } catch (err) {
+    console.error("❌ MongoDB Connection Error:", err.message);
+  }
+};
 
-    } catch (err) {
-        console.error("MongoDB Connection Error:", err)
-    }
-})();
 
 

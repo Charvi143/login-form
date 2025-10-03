@@ -1,6 +1,6 @@
 import express from 'express'
 import dotenv from 'dotenv'; 
-import './Models/db.js'
+import { connectDB } from "./Models/db.js";
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import authRouter from './Routes/authRouters.js'
@@ -21,8 +21,17 @@ app.get('/ping', (req, res) => {
 
 app.use(bodyParser.json())
 app.use(cors())
+app.use(async (req, res, next) => {
+  await connectDB();
+  next();
+});
 app.use('/auth', authRouter)
 app.use('/home', homeRouter)
+
+app.get("/mongo", async (req, res) => {
+  await connectDB();
+  res.send("MongoDB is connected ✅");
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`)
