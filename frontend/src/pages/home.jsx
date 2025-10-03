@@ -56,7 +56,6 @@ const HomePage = () => {
 
     const name = localStorage.getItem('name') || "None";
     const img = localStorage.getItem('image') || false;
-    console.log("img: ", img);
     return (
         <div className="flex flex-col gap-3 items-center justify-start my-15">
 

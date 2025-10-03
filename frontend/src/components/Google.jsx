@@ -9,9 +9,7 @@ const Google = () => {
     const responseGoogle = async (authResult) => {
         try{
             if (authResult["code"]){
-                console.log("api url => ", import.meta.env.VITE_API_URL)
                 const resp = await axios.get(`${import.meta.env.VITE_API_URL}/auth/google?code=${authResult.code}`);
-                console.log("response: ", resp);
                 const {email, name, image} = resp.data.user;
                 const token = resp.data.jwtToken;
                 localStorage.setItem('name', name)
