@@ -15,7 +15,7 @@ const Signup = async (req, res) => {
             return res.status(409)
                 .json({success:false, message:'User is already exist. You can login'});
         }
-        const userModel = new UserModel({name, email, password, type})
+        const userModel = new UserModel({name, email, password})
         userModel.password = await bcrypt.hash(password, 10);
         const User = await userModel.save();
         const jwtToken = jwt.sign(

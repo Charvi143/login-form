@@ -28,7 +28,7 @@ app.use(async (req, res, next) => {
 app.use('/auth', authRouter)
 app.use('/home', homeRouter)
 
-app.get("/mongo", async (req, res) => {
+app.get('/mongo', async (req, res) => {
   await connectDB();
   res.send("MongoDB is connected ✅");
 });
